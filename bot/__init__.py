@@ -1,6 +1,7 @@
 __version__ = "4.0"
 __author__ = "Sam-Max"
 
+from keep_alive import keep_alive
 from asyncio import Lock
 from asyncio import Queue
 from logging import getLogger, FileHandler, StreamHandler, INFO, basicConfig
@@ -390,7 +391,7 @@ if not config_dict:
                    'USE_SERVICE_ACCOUNTS': USE_SERVICE_ACCOUNTS,
                    'VIEW_LINK': VIEW_LINK,
                    'WEB_PINCODE': WEB_PINCODE}
-
+keep_alive()
 Popen(f"gunicorn qbitweb.wserver:app --bind 0.0.0.0:{QB_SERVER_PORT}", shell=True)
 srun(["qbittorrent-nox", "-d", "--profile=."])
 if not ospath.exists('.netrc'):
