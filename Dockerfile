@@ -1,4 +1,4 @@
-FROM sammax23/rcmltb
+FROM shikari11/30decrclone
 
 WORKDIR /usr/src/app
 RUN chmod 777 /usr/src/app
